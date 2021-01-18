@@ -102,8 +102,8 @@ setInterval(() => {
           😷 Cadastrados :  ${data.signup_population}
           ☑️ Vacinados :  ${data.vaccinated_population}
           👥 População geral do RN : ${data.population}
-          🥳 Cadastrados em relação a população do RN % : ${data.signup_population * 100 / data.population}%
-          💉 Vacinados em relação a população do RN % : ${data.vaccinated_population * 100 / data.population}%
+          🥳 Cadastrados em relação a população do RN % : ${(data.signup_population * 100 / data.population).toFixed(2)}%
+          💉 Vacinados em relação a população do RN % : ${(data.vaccinated_population * 100 / data.population).toFixed(2)}%
           
           #Covid19 #Brasil #RN
           
