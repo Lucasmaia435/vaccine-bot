@@ -74,7 +74,7 @@ fetchData().then((data) => {
   console.log(data);
   if (data.population !== lastState.population || data.signup_population !== lastState.signup_population || data.vaccinated_population !== lastState.vaccinated_population) {
     let msg = `
-          Programa de vacinação contra o COVID - Rio Grande do Norte\n\n\n😷 Cadastrados :  ${data.signup_population}\n☑️ Vacinados :  ${data.vaccinated_population}\n👥 População geral do RN : ${data.population}\n💉 Vacinados em relação a população do RN % : ${data.vaccinated_population * 100 / data.population}%\n\n\n#Covid19 #Brasil #RN
+          Programa de vacinação contra o COVID - Rio Grande do Norte\n\n\n😷 Cadastrados :  ${data.signup_population}\n☑️ Vacinados :  ${data.vaccinated_population}\n👥 População geral do RN : ${data.population}\n🥳 Cadastrados em relação a população do RN % : ${(data.signup_population * 100 / data.population).toFixed(2)}% \n💉 Vacinados em relação a população do RN % : ${(data.vaccinated_population * 100 / data.population).toFixed(2)}%\n\n\n#Covid19 #Brasil #RN
           
           `;
 
@@ -97,18 +97,9 @@ setInterval(() => {
     console.log(data);
     if (data.population !== lastState.population || data.signup_population !== lastState.signup_population || data.vaccinated_population !== lastState.vaccinated_population) {
       let msg = `
-          Programa de vacinação contra o COVID - Rio Grande do Norte
-          
-          😷 Cadastrados :  ${data.signup_population}
-          ☑️ Vacinados :  ${data.vaccinated_population}
-          👥 População geral do RN : ${data.population}
-          🥳 Cadastrados em relação a população do RN % : ${(data.signup_population * 100 / data.population).toFixed(2)}%
-          💉 Vacinados em relação a população do RN % : ${(data.vaccinated_population * 100 / data.population).toFixed(2)}%
-          
-          #Covid19 #Brasil #RN
+          Programa de vacinação contra o COVID - Rio Grande do Norte\n\n\n😷 Cadastrados :  ${data.signup_population}\n☑️ Vacinados :  ${data.vaccinated_population}\n👥 População geral do RN : ${data.population}\n🥳 Cadastrados em relação a população do RN % : ${(data.signup_population * 100 / data.population).toFixed(2)}% \n💉 Vacinados em relação a população do RN % : ${(data.vaccinated_population * 100 / data.population).toFixed(2)}%\n\n\n#Covid19 #Brasil #RN
           
           `;
-
       bot.post('statuses/update', { status: msg }, (err: Error) => {
         if (!err) {
           console.log("Houve alteração nos dados");
