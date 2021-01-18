@@ -1,0 +1,8 @@
+{
+  "name": "vaccine-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:danielotaviano/vaccine-bot.git",
+  "author": "Daniel Otaviano <danielpontes0@icloud.com>",
+  "license": "MIT"
+}
