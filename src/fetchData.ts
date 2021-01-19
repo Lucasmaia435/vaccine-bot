@@ -1,34 +1,32 @@
 import axios from "axios";
-import { dataCity, responseFetch, stateData } from "./types";
+import { responseFetch, stateData } from "./types";
 
 
-const reduceData = (data: dataCity[]): stateData => {
-    const stateInfo = data.reduce<stateData>((value, crr) => {
-        const newValue = {
-            population: 0,
-            signup_population: 0,
-            vaccinated_population: 0
-        }
-
-        newValue.population = value.population + crr.populacao__populacao;
-        newValue.signup_population = value.signup_population + crr.total;
-        newValue.vaccinated_population = value.vaccinated_population + crr.total_vacinados;
-
-        return newValue
-    }, {
+const formatData = (data: string): stateData => {
+    const search = data.split('>')
+    const response: stateData = {
         population: 0,
         signup_population: 0,
         vaccinated_population: 0
-
+    }
+    search.forEach((arr: string, index: number) => {
+        if (arr.includes('POPULAÇÃO DO RN')) {
+            response.population = parseInt(search[index + 2].replace('</h1', '').replace(/\./g, ''))
+        }
+        if (arr.includes('PESSOAS CADASTRADAS')) {
+            response.signup_population = parseInt(search[index + 2].replace('</h1', '').replace(/\./g, ''))
+        }
+        if (arr.includes('PESSOAS VACINADAS')) {
+            response.vaccinated_population = parseInt(search[index + 2].replace('</h1', '').replace(/\./g, ''))
+        }
     })
-
-    return stateInfo
+    return response
 }
 
 const fetchData = async (): Promise<responseFetch> => {
     try {
-        const { data } = await axios.get('https://maisvacina.saude.rn.gov.br/cidadao/cidadao/cadastrados/json')
-        const reducedData = reduceData(data.data);
+        const { data } = await axios.get('https://maisvacina.saude.rn.gov.br/cidadao/')
+        const reducedData = formatData(data);
 
         return reducedData;
     } catch (error) {
