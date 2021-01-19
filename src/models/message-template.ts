@@ -1,4 +1,3 @@
-import { sign } from 'crypto';
 import { dataCity, stateData } from '../types/types'
 import formatNumber from '../utils/formatNumber';
 
@@ -18,13 +17,12 @@ export const createMessage = ({ population, signup_population, vaccinated_popula
 export const createIndividualMessage = ({ nome, populacao__populacao, total, total_vacinados }: dataCity, username: string) => {
   const msg =
     `@${username}\n` +
-    `Vacinação contra o COVID - ${nome}/RN\n\n\n` +
+    `${nome}/RN\n\n\n` +
     `😷 Cadastrados :  ${formatNumber(total)}\n` +
     `☑️ Vacinados :  ${formatNumber(total_vacinados)}\n\n` +
 
-    `🥳 Cadastrados em relação a população do RN % : ${(total * 100 / populacao__populacao).toFixed(3)}% \n` +
-    `💉 Vacinados em relação a população do RN % : ${(total_vacinados * 100 / populacao__populacao).toFixed(4)}%\n` +
-    `💉 Vacinados em relação a população cadastrada no +Vacina % : ${(total_vacinados * 100 / total).toFixed(3)}%`
+    `Vacinados em relação a população da cidade % : ${(total_vacinados * 100 / populacao__populacao).toFixed(4)}%\n` +
+    `Vacinados / população cadastrada no +Vacina % : ${(total_vacinados * 100 / total).toFixed(3)}%`
 
   return msg
 }
