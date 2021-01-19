@@ -10,6 +10,7 @@ export const formatData = (data: string): stateData => {
 
   search.forEach((arr: string, index: number) => {
     if (arr.includes('POPULAÇÃO DO RN')) {
+      console.log(search[index + 2])
       response.population = parseInt(search[index + 2].replace('</h1', '').replace(/\./g, ''))
     }
     if (arr.includes('PESSOAS CADASTRADAS')) {
@@ -19,6 +20,7 @@ export const formatData = (data: string): stateData => {
       response.vaccinated_population = parseInt(search[index + 2].replace('</h1', '').replace(/\./g, ''))
     }
   })
+  console.log(response)
   return response
 }
 
