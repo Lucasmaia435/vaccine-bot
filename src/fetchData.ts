@@ -26,11 +26,18 @@ const reduceData = (data: dataCity[]): stateData => {
 }
 
 const fetchData = async (): Promise<responseFetch> => {
-    const { data } = await axios.get('https://maisvacina.saude.rn.gov.br/cidadao/cidadao/cadastrados/json')
+    try {
+        const { data } = await axios.get('https://maisvacina.saude.rn.gov.br/cidadao/cidadao/cadastrados/json')
+        const reducedData = reduceData(data.data);
 
-    const reducedData = reduceData(data.data);
+        return reducedData;
+    } catch (error) {
+        return await fetchData()
 
-    return reducedData;
+    }
+
+
+
 }
 
 
