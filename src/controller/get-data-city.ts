@@ -19,7 +19,7 @@ export const getDataCityController = async (city: string, twitterBot: Twit, twee
       if (err) console.log(err);
     });
   }
-  return twitterBot.post('statuses/update', { in_reply_to_status_id: tweet.id_str, status: tweet.user.screen_name + ' Cidade não encontrada!' }, err => {
+  return twitterBot.post('statuses/update', { in_reply_to_status_id: tweet.id_str, status: '@' + tweet.user.screen_name + ' Cidade não encontrada!' }, err => {
     if (err) console.log(err);
   });
 
