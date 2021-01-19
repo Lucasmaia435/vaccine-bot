@@ -5,6 +5,5 @@ const emmitter = () => {
   eventApp.emit('update')
 }
 
-emmitter()
 
-setInterval(emmitter, 1800000) // 30 minutos
+setInterval(emmitter, 1800000 * 2) // 60 minutos
