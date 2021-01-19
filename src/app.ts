@@ -15,7 +15,7 @@ export const twitterBot = new Twit({
 const stream = twitterBot.stream('statuses/filter', { track: '@covid19norn -c' });
 
 stream.on('tweet', (tweet) => {
-
+  console.log(tweet.user.screen_name);
   if (tweet.user.screen_name !== 'covid19norn') {
     const text = tweet.text.replace('@covid19norn -c', '');
     console.log('cidade solicitada!', text)
