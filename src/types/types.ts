@@ -12,9 +12,3 @@ export interface dataCity {
     total: number,
     total_vacinados: number
 }
-
-export interface responseFetch {
-    population: number
-    signup_population: number
-    vaccinated_population: number
-}
