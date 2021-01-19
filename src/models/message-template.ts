@@ -4,7 +4,7 @@ import formatNumber from '../utils/formatNumber';
 
 export const createMessage = ({ population, signup_population, vaccinated_population }: stateData) => {
   const msg =
-    `Programa de vacinação contra o COVID - Rio Grande do Norte\n\n\n` +
+    `Programa de vacinação contra o COVID - RN\n\n\n` +
     `😷 Cadastrados :  ${formatNumber(signup_population)}\n` +
     `☑️ Vacinados :  ${formatNumber(vaccinated_population)}\n\n` +
 
