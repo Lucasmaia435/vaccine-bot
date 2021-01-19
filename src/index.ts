@@ -15,5 +15,5 @@ const bot = new Twit({
 
 sendTweet(bot);
 
-setInterval(() => sendTweet(bot),600000); // 10 min
+setInterval(() => sendTweet(bot), 1800000); // 30 min
 
