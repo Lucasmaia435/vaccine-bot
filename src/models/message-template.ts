@@ -21,8 +21,8 @@ export const createIndividualMessage = ({ nome, populacao__populacao, total, tot
     `😷 Cadastrados :  ${formatNumber(total)}\n` +
     `☑️ Vacinados :  ${formatNumber(total_vacinados)}\n\n` +
 
-    `Vacinados em relação a população da cidade % : ${(total_vacinados * 100 / populacao__populacao).toFixed(4)}%\n` +
-    `Vacinados / população cadastrada no +Vacina % : ${(total_vacinados * 100 / total).toFixed(3)}%`
+    `💉Vacinados em relação a população da cidade % : ${(total_vacinados * 100 / populacao__populacao).toFixed(2)}%\n` +
+    `💉Vacinados / população cadastrada no +Vacina % : ${(total_vacinados * 100 / total).toFixed(2)}%`
 
   return msg
 }
