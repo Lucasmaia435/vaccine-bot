@@ -7,7 +7,7 @@ import { formatCityName } from '../utils/format-city-name'
 
 export const getDataCityController = async (city: string, twitterBot: Twit, tweet: any) => {
   const data = await fetchData()
-  const selectedCity = data.data.filter((dataCity: cityType) => {
+  const selectedCity = data.contadores_por_municipio.filter((dataCity: cityType) => {
     return formatCityName(dataCity.nome) === formatCityName(city);
   })
 
