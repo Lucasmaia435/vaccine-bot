@@ -12,7 +12,7 @@ export const updateVaccineDataController = async () => {
     signup_population: data.total_cidadaos_cadastrados,
     vaccinated_population: data.total_cidadaos_vacinados
   }
-  // updateDataTwitterUseCase(response)
+  updateDataTwitterUseCase(response)
   console.log('Informações atualizadas!');
 }
 
